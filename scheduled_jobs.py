@@ -38,6 +38,7 @@ def process_orders(app):
             save_order(order)
         except:
             app.logger.info("Response from endpoint: " + response.text)
+            app.logger.exception("Error processing order {id}".format(id = order.id))
         
 
 def get_queue_of_orders_to_process():
